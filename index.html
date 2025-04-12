@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MercuryBot</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <script defer src="animations/typingEffect.js"></script>
+    <script defer src="navbar.js"></script>
+    <script defer src="animations/background.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-[#181818] text-white">
+    <nav id="navbar" class="backdrop-blur-lg py-4 px-6 fixed top-0 w-full z-20 shadow-md">
+        <!-- <nav class="fixed top-0 w-full z-20 shadow-md bg-gray-800/30 backdrop-blur-lg py-4 px-6">  -->
+    <!-- <nav class="py-4 px-6 fixed top-0 w-full z-20 shadow-md"> -->
+        <div class="max-w-6xl mx-auto flex justify-between">
+            <a href="#" class="text-xl font-bold">MercuryBot</a>
+            <div class="space-x-4">
+                <a href="#features" class="hover:text-gray-400">Features</a>
+                <a href="#setup" class="hover:text-gray-400">Setup</a>
+            </div>
+        </div>
+    </nav>
+
+<img height="32" width="32" src="https://unpkg.com/simple-icons@v14/icons/bluesky.svg" />
+    <section class="animated-section ">
+        <canvas id="bgCanvas"></canvas>
+        <img src="images/mercury_avatar.gif" 
+            alt="MercuryBot Logo" 
+            class="relative z-10 w-40 h-40 md:w-52 md:h-52">
+        <div class="relative z-10 mt-6">
+            <h2 id="bot-type" class="text-4xl md:text-5xl font-bold min-w-[500px]"></h2>
+            <div c class="mt-10 text-lg md:text-xl">Never miss out on a free game again!</div>
+            <div class="mt-20 flex flex-col sm:flex-row space-y-5 sm:space-y-0 sm:space-x-5 items-center justify-center">
+                <a href="https://discord.com/api/oauth2/authorize?client_id=827564914733350942&permissions=534723885120&scope=bot" class="w-52 px-6 py-3 flex items-center justify-center space-x-2 bg-[#5865F2] text-white rounded-lg shadow hover:bg-[#4752C4] text-sm md:text-base">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v14/icons/discord.svg" class="w-5 h-5" alt="Discord Logo">
+                    <span class="flex-1 text-center whitespace-nowrap">Invite on Discord</span>
+                </a>
+                <a href="https://x.com/_MercuryBot_" class="w-52 px-6 py-3 flex items-center justify-center space-x-2 bg-[#1DA1F2] text-white rounded-lg shadow hover:bg-[#0D95E8] text-sm md:text-base">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v14/icons/x.svg" class="w-5 h-5" alt="Twitter Logo">
+                    <span class="flex-1 text-center whitespace-nowrap">Follow on 𝕏</span>
+                </a>
+                <a href="https://bsky.app/profile/mercurybot.bsky.social" class="w-52 px-6 py-3 flex items-center justify-center bg-[#0095FF] text-white rounded-lg shadow hover:bg-[#0077CC] text-sm md:text-base">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v14/icons/bluesky.svg" class="w-5 h-5 svg-black" alt="Bluesky Logo">
+                    <span class="flex-1 text-center whitespace-nowrap">Follow on Bluesky</span>
+                </a>
+            </div>
+    </section>
+
+    <section id="userbase" class="bg-[#1b1b1b] py-10 md:py-16 text-center text-white">
+        <div class="flex flex-wrap justify-center gap-4 px-3 md:flex-nowrap">
+            <a href="https://discord.com/api/oauth2/authorize?client_id=827564914733350942&permissions=534723885120&scope=bot">
+            <img src="https://img.shields.io/endpoint?url=https://shieldsio-api-production.up.railway.app/api/stats/discordservers&style=for-the-badge&logo=discord&logoColor=%235865f2"></a>
+            <a href="https://x.com/_MercuryBot_">
+            <img src="https://img.shields.io/endpoint?url=https://shieldsio-api-production.up.railway.app/api/stats/twitter&style=for-the-badge&logo=x"></a>
+            <a href="https://bsky.app/profile/mercurybot.bsky.social">
+            <img src="https://img.shields.io/endpoint?url=https://shieldsio-api-production.up.railway.app/api/stats/bluesky&style=for-the-badge&logo=bluesky"></a>
+      </div>
+    </section>
+
+    <section id="about" class="bg-[#181818] py-16 text-center text-white opacity-0 translate-y-10 transition-all duration-700">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="md:text-left text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-10">What is MercuryBot?</h2>
+            </div>
+            <p class=" text-lg md:text-xl leading-relaxed md:text-left mt-4 md:mt-0">
+                It's an <a class="link" href="https://github.com/5okin/MercuryBot">open source</a> Discord, Bluesky and X, bot that monitors Epic Games, Steam, GOG, and PS Plus to find the latest giveaways and notify you. 
+            </p>
+            <p class=" text-lg md:text-xl leading-relaxed md:text-center mt-10">
+                Never miss another free game again !
+            </p>
+        </div>
+    </section>
+
+    <section id="features" class="bg-[#181818] mt-10 mb-10 text-center text-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="md:text-left text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-10">Features</h2>
+            </div>
+            <div class="mt-12 mx-auto grid grid-cols-1 md:grid-cols-3 gap-20 text-left text-sm md:text-base">
+                <p><strong>Multi-Platform Support:</strong> MercuryBot monitors free game promotions on Epic Games, Steam, GOG, and PS Plus.</p>
+                <p><strong>Online 24/7:</strong> Bot doesn't go offline ensuring you don't miss out on any deal!</p>
+                <p><strong>Automated Reminders:</strong> Receive timely reminders in your Discord server, X, or Bluesky feed when new free games become available.</p>
+            <p><strong>Customizable Settings:</strong> Configure MercuryBot to tailor notifications to your preferences on Discord.</p>
+            <p><strong>Ephemeral Messages:</strong> Commands you send to the bot on Discord clutter.</p>
+            <p><strong>Privacy Focused:</strong> Using slash commands, the bot never has access to your messages.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="notifications" class="bg-[#1b1b1b] py-10 text-center text-white mb-20">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col space-y-16 items-center">
+            <!-- Discord Notification (Image on Right, Text on Left) -->
+            <div class="flex flex-col lg:flex-row items-center justify-between w-full">
+                <div class="text-left max-w-md" data-animate="slide-in-left">
+                    <h3 class="text-2xl md:text-left text-center font-semibold">Discord Notifications</h3>
+                    <p class="mt-10 text-gray-300">Receive current and upcoming game notifications for the stores you select directly in your Discord server.</p>
+                </div>
+                <div>
+                    <div class="image-stack mt-40" data-animate="slide-in-right">
+                        <div class="image-wrapper">
+                            <img class="stack-image top" src="images/discord_1.gif" alt="Image 1">
+                        </div>
+                        <div class="image-wrapper">
+                            <img class="stack-image middle" src="images/discord_2.gif" alt="Image 2">
+                        </div>
+                        <div class="image-wrapper">
+                            <img class="stack-image bottom" src="images/discord_3.gif" alt="Image 3">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Twitter Notification (Image on Left, Text on Right) -->
+            <div class="flex flex-col lg:flex-row-reverse items-center justify-between w-full ">
+                <div class="text-left max-w-md" data-animate="slide-in-right">
+                    <h3 class="text-2xl md:text-left text-center font-semibold">𝕏 and Bluesky Notifications</h3>
+                    <p class="text-gray-300">Stay updated with free game notifications on Twitter and Bluesky, ensuring you never miss a deal.</p>
+                </div>
+                <div class="fan-container" data-animate="slide-in-left" id="fan">
+                    <img src="images/twitter.png" alt="Twitter">
+                    <img src="images/bluesky.png" alt="Bluesky">
+                  </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="setup" class="bg-[#181818] mt-10 mb-20 text-center text-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div>
+                <h2 class="text-3xl md:text-4xl font-bold mb-10">How to setup?</h2>
+            </div>
+            <p class=" text-lg md:text-xl leading-relaxed mt-4 md:mt-0 text-center">
+                For the time being you can find detailed directions on how setup over on the projects <a class="link" href="https://github.com/5okin/MercuryBot?tab=readme-ov-file#discord">github page</a>. 
+            </p>
+        </div>
+    </section>
+    
+    <footer class="p-4 text-center bg-gray-800">
+        <p class="text-white">
+            MercuryBot is open source and licensed under GPL-3.0.
+            | <a href="terms.html" class="text-blue-400 hover:underline">Terms of Service</a> |
+            <a href="privacy.html" class="text-blue-400 hover:underline">Privacy Policy</a>
+        </p>
+    </footer>
+</body>
+</html>
