@@ -68,9 +68,24 @@ p {
   }
 }
 
-@supports (padding-bottom: env(safe-area-inset-bottom)){
-  .animated-section{
-    padding-bottom: calc(env(safe-area-inset-bottom) + 4rem); 
+@media (orientation: portrait) {
+  @supports (-webkit-touch-callout: none) {
+    .animated-section {
+      height: 108lvh;
+    }
+  }
+}
+
+@media (orientation: landscape) {
+  @supports (-webkit-touch-callout: none) {
+    .animated-section {
+      height: 120vh;
+      padding-top: calc(env(safe-area-inset-top) + 5rem);
+    }
+    .avatar-landscape {
+      width: 20% !important;
+      height: auto !important;
+    }
   }
 }
 

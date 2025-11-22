@@ -3,10 +3,14 @@ const ctx = canvas.getContext("2d");
 const dpr = window.devicePixelRatio || 1;
 
 let points = [];
-canvas.width = window.innerWidth * dpr;
-canvas.height = document.querySelector(".animated-section").offsetHeight * dpr;
+let animationId;
+let resizeTimeout;
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
-function setupPoints() {
+function setupCanvas() {
+    points = [];
+    canvas.width = window.innerWidth * dpr;
+    canvas.height = document.querySelector(".animated-section").offsetHeight * dpr;
     const basePoints = 400 * dpr;// Minimum number of points
     const scaleFactor = Math.max(window.innerWidth * dpr * 0.4, basePoints); // Ensure enough points
 
@@ -24,7 +28,7 @@ function drawLines() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.strokeStyle = "rgba(255, 255, 255, 0.03)";
     ctx.lineWidth = 1;
-    
+
     for (let i = 0; i < points.length; i++) {
         for (let j = i + 1; j < points.length; j++) {
             let dx = points[i].x - points[j].x;
@@ -52,10 +56,27 @@ function updatePoints() {
 function animate() {
     updatePoints();
     drawLines();
-    requestAnimationFrame(animate);
+    animationId = requestAnimationFrame(animate);
 }
-setupPoints();
-animate();
+
+function initAnimation() {
+    cancelAnimationFrame(animationId);
+    setupCanvas();
+    animate();
+}
+
+initAnimation();
+
+if (!isMobile) {
+    window.addEventListener("resize", () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(initAnimation, 200)
+    });
+}
+
+window.matchMedia("(orientation: portrait)").addEventListener("change", e => {
+    initAnimation();
+});
 
 
 document.addEventListener("DOMContentLoaded", function () {
